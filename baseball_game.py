@@ -160,34 +160,35 @@ def get_not_duplicated_three_digit_number():
 
 
 def get_strikes_or_ball(user_input_number, random_number):
-    # '''
-    # Input:
-    #   - user_input_number : 문자열값으로 사용자가 입력하는 세자리 정수
-    #   - random_number : 문자열값으로 컴퓨터가 자동으로 생성된 숫자
-    # Output:
-    #   - [strikes, ball] : 규칙에 따라 정수형 값인 strikes와 ball이 반환됨
-    #   변환 규칙은 아래와 같음
-    #   - 사용자가 입력한 숫자와 컴퓨터가 생성한 숫자의
-    #     한 숫자와 자릿수가 모두 일치하면 1 Strike
-    #   - 자릿수는 다르나 입력한 한 숫자가 존재하면 1 Ball
-    #   - 세자리 숫자를 정확히 입력하면 3 Strike
-    # Examples:
-    #   >>> import baseball_game as bg
-    #   >>> bg.get_strikes_or_ball("123", "472")
-    #   [0, 1]
-    #   >>> bg.get_strikes_or_ball("547", "472")
-    #   [0, 2]
-    #   >>> bg.get_strikes_or_ball("247", "472")
-    #   [0, 3]
-    #   >>> bg.get_strikes_or_ball("742", "472")
-    #   [1, 2]
-    #   >>> bg.get_strikes_or_ball("472", "472")
-    #   [3, 0]
-    # '''
+    """
+    Input:
+     - user_input_number : 문자열값으로 사용자가 입력하는 세자리 정수
+     - random_number : 문자열값으로 컴퓨터가 자동으로 생성된 숫자
+    Output:
+     - [strikes, ball] : 규칙에 따라 정수형 값인 strikes와 ball이 반환됨
+     변환 규칙은 아래와 같음
+     - 사용자가 입력한 숫자와 컴퓨터가 생성한 숫자의
+       한 숫자와 자릿수가 모두 일치하면 1 Strike
+     - 자릿수는 다르나 입력한 한 숫자가 존재하면 1 Ball
+     - 세자리 숫자를 정확히 입력하면 3 Strike
+    Examples:
+     >>> import baseball_game as bg
+     >>> bg.get_strikes_or_ball("123", "472")
+     [0, 1]
+     >>> bg.get_strikes_or_ball("547", "472")
+     [0, 2]
+     >>> bg.get_strikes_or_ball("247", "472")
+     [0, 3]
+     >>> bg.get_strikes_or_ball("742", "472")
+     [1, 2]
+     >>> bg.get_strikes_or_ball("472", "472")
+     [3, 0]
+    """
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
     strikes = sum(map(lambda x, y: x == y, user_input_number, random_number))
-    ball = len(set(user_input_number).intersection(set(random_number))) - strikes
+    #  ball = len(set(user_input_number).intersection(set(random_number))) - strikes
+    ball = 6 - len(set(user_input_number + random_number)) - strikes
 
     result = [strikes, ball]
     # ==================================
@@ -195,29 +196,29 @@ def get_strikes_or_ball(user_input_number, random_number):
 
 
 def is_yes(one_more_input):
-    # '''
-    # Input:
-    #   - one_more_input : 문자열값으로 사용자가 입력하는 문자
-    # Output:
-    #   - 입력한 값이 대소문자 구분없이 "Y" 또는 "YES"일 경우 True,
-    #     그렇지 않을 경우 False를 반환함
-    # Examples:
-    #   >>> import baseball_game as bg
-    # >>> bg.is_yes("Y")
-    # True
-    # >>> bg.is_yes("y")
-    # True
-    # >>> bg.is_yes("Yes")
-    # True
-    # >>> bg.is_yes("YES")
-    # True
-    # >>> bg.is_yes("abc")
-    # False
-    # >>> bg.is_yes("213")
-    # False
-    # >>> bg.is_yes("4562")
-    # False
-    # '''
+    """
+    Input:
+     - one_more_input : 문자열값으로 사용자가 입력하는 문자
+    Output:
+     - 입력한 값이 대소문자 구분없이 "Y" 또는 "YES"일 경우 True,
+       그렇지 않을 경우 False를 반환함
+    Examples:
+     >>> import baseball_game as bg
+    >>> bg.is_yes("Y")
+    True
+    >>> bg.is_yes("y")
+    True
+    >>> bg.is_yes("Yes")
+    True
+    >>> bg.is_yes("YES")
+    True
+    >>> bg.is_yes("abc")
+    False
+    >>> bg.is_yes("213")
+    False
+    >>> bg.is_yes("4562")
+    False
+    """
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
 
@@ -227,29 +228,29 @@ def is_yes(one_more_input):
 
 
 def is_no(one_more_input):
-    # '''
-    # Input:
-    #   - one_more_input : 문자열값으로 사용자가 입력하는 문자
-    # Output:
-    #   - 입력한 값이 대소문자 구분없이 "N" 또는 "NO"일 경우 True,
-    #     그렇지 않을 경우 False를 반환함
-    # Examples:
-    #   >>> import baseball_game as bg
-    # >>> bg.is_no("Y")
-    # False
-    # >>> bg.is_no("b")
-    # False
-    # >>> bg.is_no("n")
-    # True
-    # >>> bg.is_no("NO")
-    # True
-    # >>> bg.is_no("nO")
-    # True
-    # >>> bg.is_no("1234")
-    # False
-    # >>> bg.is_no("yes")
-    # False
-    # '''
+    """
+    Input:
+     - one_more_input : 문자열값으로 사용자가 입력하는 문자
+    Output:
+     - 입력한 값이 대소문자 구분없이 "N" 또는 "NO"일 경우 True,
+       그렇지 않을 경우 False를 반환함
+    Examples:
+     >>> import baseball_game as bg
+    >>> bg.is_no("Y")
+    False
+    >>> bg.is_no("b")
+    False
+    >>> bg.is_no("n")
+    True
+    >>> bg.is_no("NO")
+    True
+    >>> bg.is_no("nO")
+    True
+    >>> bg.is_no("1234")
+    False
+    >>> bg.is_no("yes")
+    False
+    """
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
 
