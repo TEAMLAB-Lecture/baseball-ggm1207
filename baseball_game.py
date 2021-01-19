@@ -272,6 +272,9 @@ def main():
         while True:
             user_input = input("Input guess number : ")
 
+            if user_input == "0":
+                break
+
             if not is_validated_number(user_input):
                 print("Wrong Input, Input again")
                 continue
@@ -282,8 +285,11 @@ def main():
             if strikes == 3:
                 break
 
+        if user_input == "0":
+            break
+
         while True:
-            one_more = input("You win, one more(Y/N)").strip()
+            one_more = input("You win, one more(Y/N) ?").strip()
 
             # check valid
             if is_no(one_more) or is_yes(one_more):
